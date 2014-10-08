@@ -99,4 +99,3 @@ set guioptions=                     " reset gui options in vim
 
 " List of files ignored by Vim
 set wildignore=*.swp,*.bak,*.pyc,*.class
-
