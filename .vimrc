@@ -19,7 +19,7 @@ Plugin 'fatih/vim-go'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
-
+Plugin 'scrooloose/nerdtree'
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'nanotech/jellybeans.vim'
 
@@ -38,12 +38,23 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" so vim airline bar appears 
+" so vim airline bar appears
 set laststatus=2
 
 " key mapping for CtrlP plugin
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" config settings for CtrlP, put at top, ignore stupid files
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_switch_buffer = 0
+
+" remap nerdtree
+map <C-n> :NERDTreeToggle<CR>
 
 " fix colors
 set t_Co=256
@@ -54,7 +65,7 @@ set term=xterm-256color
 set t_ut=
 
 set background=dark
-colorscheme jellybeans 
+colorscheme jellybeans
 
 
 syntax on                           " Enable syntax highlighting
@@ -101,3 +112,7 @@ set guioptions=                     " reset gui options in vim
 
 " List of files ignored by Vim
 set wildignore=*.swp,*.bak,*.pyc,*.class
+
+:nmap j gj
+:nmap k gk
+
