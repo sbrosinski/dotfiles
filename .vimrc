@@ -13,10 +13,12 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'fatih/vim-go'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
 
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'nanotech/jellybeans.vim'
@@ -91,8 +93,8 @@ set shortmess+=I                    " Disable short message shown at the start
 set spelllang=en_us                 " Set default dictionary for spell checking
 set synmaxcol=512                   " max colored lines in line
 set autoread                        " Reload the file when it has been chaged outside of vim
-" set directory=~/.vim/temp/          " Define default directory for temporary files
-" set backupdir=~/.vim/bkp/           " Define default directory for backup files
+set directory=~/.vim/tmp/          " Define default directory for temporary files
+set backupdir=~/.vim/bkp/           " Define default directory for backup files
 setl scrollbind                     " If there are two windows with scroll bind option enabled, scroll them simultaneously
 source $VIMRUNTIME/ftplugin/man.vim " turn on man pages in vim
 set guioptions=                     " reset gui options in vim
