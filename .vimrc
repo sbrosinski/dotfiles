@@ -115,4 +115,4 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 
 :nmap j gj
 :nmap k gk
-
+imap <F1> <Esc>
