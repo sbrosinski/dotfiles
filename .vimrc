@@ -117,7 +117,14 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 :nmap k gk
 imap <F1> <Esc>
 
-let mapleader=","
+" Remaps commnd char to . to not have to use space
+nmap . :
+
+" Space as leader key
+let mapleader="\<Space>"
+
+" toggle paste in cmd only
+nnoremap <Leader>p :set invpaste<CR>
 
 " golang related mappings
 au FileType go nmap <Leader>i <Plug>(go-info)
@@ -126,4 +133,8 @@ au FileType go nmap <Leader>r <Plug>(go-run)
 au FileType go nmap <Leader>b <Plug>(go-build)
 au FileType go nmap <Leader>t <Plug>(go-test)
 au FileType go nmap gd <Plug>(go-def-tab)
+
+" let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "goimports"
+
 
