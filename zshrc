@@ -46,7 +46,7 @@ export LANG="en_US.UTF-8"
 # =============
 #
 
-export PATH="/usr/local/go/bin:$GOBIN:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/go/bin:$GOBIN:$HOME/.cargo/bin:$PATH"
 
 export EDITOR="vim"
 export LSCOLORS=cxBxhxDxfxhxhxhxhxcxcx
@@ -88,7 +88,7 @@ autoload -U colors && colors
 setopt promptsubst
 
 local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[green]%}$)"
-PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
+PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(aws_prompt) $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
@@ -103,6 +103,10 @@ function git_prompt_info() {
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
     echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
   fi
+}
+
+function aws_prompt() {
+  echo "AWS($AWS_PROFILE)"
 }
 
 # Checks if working tree is dirty
@@ -252,3 +256,5 @@ eval "$(jump shell)"
 # https://github.com/direnv/direnv
 eval "$(direnv hook zsh)"
 
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
