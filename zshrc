@@ -88,7 +88,7 @@ autoload -U colors && colors
 setopt promptsubst
 
 local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[green]%}$)"
-PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(aws_prompt) $(git_prompt_info)'
+PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
@@ -103,10 +103,6 @@ function git_prompt_info() {
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
     echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
   fi
-}
-
-function aws_prompt() {
-  echo "AWS($AWS_PROFILE)"
 }
 
 # Checks if working tree is dirty
@@ -242,19 +238,19 @@ exit() {
 #    PLUGINS
 # ===================
 
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ===================
 #    THIRD PARTY
 # ===================
 # brew install jump
 # https://github.com/gsamokovarov/jump
-eval "$(jump shell)"
+# eval "$(jump shell)"
 
 # brew install direnv
 # https://github.com/direnv/direnv
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
